@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Chai aur Code
+{% endblock %}
+
+{% block content %}
+<div class="text-center mt-4 mb-3">
+    Are you sure you want to delete this tweet?
+</div>
+
+{% if tweet %}
+<div class="card mb-3 mx-auto" style="width: 18rem;">
+    {% if tweet.photo %}
+        <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet Image">
+    {% endif %}
+    <div class="card-body text-center">
+        <h5 class="card-title">{{ tweet.user.username }}</h5>
+        <p class="card-text">{{ tweet.text }}</p>
+    </div>
+</div>
+{% endif %}
+
+<form method="post" class="text-center">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">
+        Delete
+    </button>
+    <a class="btn btn-success ms-2" href="{% url 'tweet_list' %}">
+        Cancel
+    </a>
+</form>
+{% endblock %}

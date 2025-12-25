@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            background-color: #000;
-            color : #ffff;
-        }
-    </style>
-</head>
-<body>
-    test templates
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}
+Chai aur Code
+{% endblock %}
+
+{% block content %}
+<div class="text-center text-white mt-5">
+    <h1>Welcome to Chai's Django Project</h1>
+    <p class="lead">Start creating and viewing tweets!</p>
+    <a href="{% url 'tweet_list' %}" class="btn btn-primary mt-3">Go to Tweets</a>
+</div>
+{% endblock %}
